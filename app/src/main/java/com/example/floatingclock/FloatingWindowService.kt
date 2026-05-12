@@ -61,8 +61,10 @@ class FloatingWindowService : Service() {
             gravity = Gravity.TOP or Gravity.START
         }
 
+        @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-            layoutParams.setShowWhenLocked(true)
+            layoutParams.flags =
+                layoutParams.flags or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
         }
 
         floatingView = DraggableFrameLayout(this, windowManager, layoutParams, preferencesManager)
