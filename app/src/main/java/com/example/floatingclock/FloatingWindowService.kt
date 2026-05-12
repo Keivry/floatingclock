@@ -62,8 +62,7 @@ class FloatingWindowService : Service() {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-            layoutParams.flags =
-                layoutParams.flags or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+            layoutParams.setShowWhenLocked(true)
         }
 
         floatingView = DraggableFrameLayout(this, windowManager, layoutParams, preferencesManager)
