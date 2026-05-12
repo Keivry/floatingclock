@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 悬浮窗权限 -->
+    <!-- Overlay permission -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!-- 前台服务权限 -->
+    <!-- Foreground service permissions -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
-    <!-- Android 13+ 通知权限 -->
+    <!-- Android 13+ notification permission -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FloatingClock">
 
-        <!-- 主控制 Activity -->
+        <!-- Main control Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <!-- 悬浮窗前台 Service -->
+        <!-- Floating window foreground Service -->
         <service
             android:name=".FloatingWindowService"
             android:exported="false"

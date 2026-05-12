@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
-        // 权限请求结果回调 — 不做额外处理，下次 onResume 时会重新检查
+        // Permission result callback — no-op; onResume will re-check
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val rgFont = findViewById<RadioGroup>(R.id.rgFont)
         val rgColor = findViewById<RadioGroup>(R.id.rgColor)
 
-        // 先注册所有监听器，再恢复状态 — 确保恢复状态时监听器已就位，能自动触发 Service 启动等操作
+        // Register listeners first, then restore state — ensures listeners fire on restore
         switchFloating.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 if (!Settings.canDrawOverlays(this@MainActivity)) {
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             preferencesManager.textColor = color
         }
 
-        // 恢复持久化状态（监听器已就位，会触发对应的 Service 启停和样式更新）
+        // Restore persisted state (listeners are registered, will trigger service start/stop and style updates)
         switchFloating.isChecked = preferencesManager.isFloatingEnabled
 
         when (preferencesManager.fontFamily) {

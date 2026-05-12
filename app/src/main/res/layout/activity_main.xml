@@ -6,7 +6,7 @@
     android:padding="24dp"
     android:background="?android:attr/colorBackground">
 
-    <!-- 标题 -->
+    <!-- Title -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_marginBottom="32dp"
         android:textColor="?android:attr/textColorPrimary" />
 
-    <!-- 悬浮窗开关区域 -->
+    <!-- Floating window switch -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             style="@style/Widget.MaterialComponents.CompoundButton.Switch" />
     </LinearLayout>
 
-    <!-- 分割线 -->
+    <!-- Divider -->
     <View
         android:id="@+id/viewDivider"
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         android:layout_marginBottom="12dp"
         android:background="?android:attr/listDivider" />
 
-    <!-- 字体选择区域 -->
+    <!-- Font selection -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             android:padding="8dp" />
     </RadioGroup>
 
-    <!-- 颜色选择区域 -->
+    <!-- Color selection -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

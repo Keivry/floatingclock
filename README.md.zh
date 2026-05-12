@@ -1,0 +1,66 @@
+# FloatingClock（悬浮时钟）
+
+一款轻量级 Android 悬浮时钟应用，以透明叠加层形式在其他应用上方显示当前系统时间（精确到秒）。
+
+## 功能
+
+- **悬浮时钟** — 实时显示 HH:mm:ss 格式的系统时间
+- **透明背景** — 仅时间文本可见，最小化视觉干扰
+- **拖动定位** — 长按约 500ms 后拖动，可移至屏幕任意位置
+- **点击穿透** — 悬浮窗范围外的触摸事件透传到下层应用（文本区域短点击因 Android 限制无法穿透）
+- **字体选择** — 支持默认、等宽、衬线三种字体
+- **颜色自定义** — 7 种预设颜色可选（白/红/绿/蓝/黄/青/品红）
+- **设置持久化** — 所有偏好设置在应用重启后保留
+- **Material Design 界面** — 简洁现代的主控制界面，支持浅色/深色主题
+- **双语支持** — 支持英文和简体中文
+
+## 截图
+
+*(此处添加截图)*
+
+## 系统要求
+
+- Android 8.0 (API 26) 及以上
+
+## 所需权限
+
+| 权限 | 用途 |
+|---|---|
+| **在其他应用上层显示** | 显示悬浮时钟叠加层 |
+| **通知权限** | 前台服务通知（Android 13+ 要求） |
+| **前台服务** | 保持时钟在后台可靠运行 |
+
+## 安装
+
+从 [Releases](https://github.com/Keivry/floatingclock/releases) 页面下载最新 APK。
+
+## 从源码构建
+
+```bash
+# 克隆仓库
+git clone https://github.com/Keivry/floatingclock.git
+cd floatingclock
+
+# 构建 Debug APK
+./gradlew assembleDebug
+
+# 构建 Release APK
+./gradlew assembleRelease
+```
+
+项目技术栈：
+- **Gradle 8.11.1**（Kotlin DSL）
+- **AGP 8.7.3**（Android Gradle Plugin）
+- **Kotlin 2.0.21**
+- **最低 SDK**: 26 | **目标 SDK**: 34 | **编译 SDK**: 35
+
+## 架构
+
+- **FloatingWindowService** — 前台 `Service`，通过 `WindowManager` 管理悬浮窗生命周期
+- **DraggableFrameLayout** — 自定义 `FrameLayout`，处理长按检测与拖拽定位
+- **MainActivity** — 主设置界面，包含开关、字体选择器和颜色选择器
+- **PreferencesManager** — `SharedPreferences` 封装，持久化用户设置
+
+## 许可证
+
+MIT

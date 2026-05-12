@@ -4,7 +4,7 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- 时钟表盘 — 圆形底 -->
+    <!-- Clock face — circular background -->
     <path
         android:fillColor="#FFFFFF"
         android:pathData="M54,54m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
@@ -31,11 +31,11 @@
     <path
         android:fillColor="#FF1C1B1F"
         android:pathData="M54,54L38,38L35,41L51,56Z" />
-    <!-- 分针 (指向 1 点方向, 较长较细) -->
+    <!-- Minute hand (pointing to 1 o'clock, longer and thinner) -->
     <path
         android:fillColor="#FF1C1B1F"
         android:pathData="M54,54L70,32L66,30L51,53Z" />
-    <!-- 中心轴点 -->
+    <!-- Center axis pin -->
     <path
         android:fillColor="#FF6200EE"
         android:pathData="M54,54m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />

@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 import android.graphics.Color
 
 /**
- * SharedPreferences 工具类，管理悬浮时钟的持久化偏好设置。
- * 所有 getter 均返回非空默认值。
+ * SharedPreferences utility for managing floating clock persistent preferences.
+ * All getters return non-null default values on first access.
  */
 class PreferencesManager(context: Context) {
 
