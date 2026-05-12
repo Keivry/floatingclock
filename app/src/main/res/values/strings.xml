@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">悬浮时钟</string>
-    <string name="switch_floating_window">悬浮窗开关</string>
-    <string name="font_selection">字体选择</string>
-    <string name="color_selection">颜色选择</string>
-    <string name="permission_overlay_required">需要"显示在其他应用上层"权限才能使用悬浮窗功能</string>
-    <string name="go_to_settings">去设置</string>
-    <string name="cancel">取消</string>
-    <string name="battery_optimization_guide">为防止悬浮时钟被系统关闭，建议关闭电池优化</string>
-    <string name="notification_channel_name">悬浮时钟服务</string>
-    <string name="notification_channel_desc">悬浮时钟前台服务通知渠道</string>
-    <string name="notification_title">悬浮时钟运行中</string>
-    <string name="notification_content">点击打开设置</string>
-    <string name="notification_permission_required">需要通知权限以保持悬浮时钟运行</string>
-    <string name="font_default">默认</string>
-    <string name="font_monospace">等宽</string>
-    <string name="font_serif">衬线</string>
-    <string name="color_white">白色</string>
-    <string name="color_black">黑色</string>
-    <string name="color_red">红色</string>
-    <string name="color_green">绿色</string>
-    <string name="color_blue">蓝色</string>
-    <string name="color_yellow">黄色</string>
-    <string name="color_cyan">青色</string>
-    <string name="color_magenta">品红</string>
+    <string name="app_name">Floating Clock</string>
+    <string name="app_title">Floating Clock</string>
+
+    <string name="switch_floating_window">Floating Window</string>
+    <string name="font_selection">Font</string>
+    <string name="color_selection">Color</string>
+
+    <string name="permission_overlay_title">Permission Required</string>
+    <string name="permission_overlay_required">"Display over other apps" permission is required for the floating clock</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="battery_title">Battery Optimization</string>
+    <string name="battery_optimization_guide">Disable battery optimization to prevent the floating clock from being killed</string>
+
+    <string name="notification_channel_name">Floating Clock Service</string>
+    <string name="notification_channel_desc">Floating clock foreground service notification channel</string>
+    <string name="notification_title">Floating Clock Running</string>
+    <string name="notification_content">Tap to open settings</string>
+
+    <string name="notification_permission_title">Notification Permission</string>
+    <string name="notification_permission_required">Notification permission is required to keep the floating clock running</string>
+    <string name="dialog_allow">Allow</string>
+    <string name="dialog_deny">Deny</string>
+
+    <string name="font_default">Default</string>
+    <string name="font_monospace">Monospace</string>
+    <string name="font_serif">Serif</string>
+
+    <string name="color_white">White</string>
+    <string name="color_black">Black</string>
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_magenta">Magenta</string>
+    <string name="foreground_service_description">The floating clock needs to stay in foreground to display time in real-time</string>
 </resources>

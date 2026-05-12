@@ -111,16 +111,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestOverlayPermission() {
         AlertDialog.Builder(this)
-            .setTitle("权限提示")
-            .setMessage("需要\"显示在其他应用上层\"权限才能使用悬浮窗功能")
-            .setPositiveButton("去设置") { _, _ ->
+            .setTitle(getString(R.string.permission_overlay_title))
+            .setMessage(getString(R.string.permission_overlay_required))
+            .setPositiveButton(getString(R.string.go_to_settings)) { _, _ ->
                 val intent = Intent(
                     Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:$packageName")
                 )
                 startActivity(intent)
             }
-            .setNegativeButton("取消") { _, _ ->
+            .setNegativeButton(getString(R.string.cancel)) { _, _ ->
                 val switchFloating = findViewById<Switch>(R.id.switchFloating)
                 switchFloating.isChecked = false
             }
@@ -132,12 +132,12 @@ class MainActivity : AppCompatActivity() {
             if (!NotificationManagerCompat.from(this).areNotificationsEnabled()) {
                 notificationPermissionRequested = true
                 AlertDialog.Builder(this)
-                    .setTitle("通知权限")
-                    .setMessage("需要通知权限以保持悬浮时钟运行")
-                    .setPositiveButton("允许") { _, _ ->
+                    .setTitle(getString(R.string.notification_permission_title))
+                    .setMessage(getString(R.string.notification_permission_required))
+                    .setPositiveButton(getString(R.string.dialog_allow)) { _, _ ->
                         requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
                     }
-                    .setNegativeButton("取消") { _, _ -> }
+                    .setNegativeButton(getString(R.string.dialog_deny)) { _, _ -> }
                     .show()
             } else {
                 notificationPermissionRequested = true
@@ -149,16 +149,16 @@ class MainActivity : AppCompatActivity() {
         val powerManager = getSystemService(POWER_SERVICE) as PowerManager
         if (!powerManager.isIgnoringBatteryOptimizations(packageName)) {
             AlertDialog.Builder(this)
-                .setTitle("电池优化")
-                .setMessage("为防止悬浮时钟被系统关闭，建议关闭电池优化")
-                .setPositiveButton("去设置") { _, _ ->
+                .setTitle(getString(R.string.battery_title))
+                .setMessage(getString(R.string.battery_optimization_guide))
+                .setPositiveButton(getString(R.string.go_to_settings)) { _, _ ->
                     val intent = Intent(
                         Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
                         Uri.parse("package:$packageName")
                     )
                     startActivity(intent)
                 }
-                .setNegativeButton("取消") { _, _ -> }
+                .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
                 .show()
         }
     }

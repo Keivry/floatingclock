@@ -4,18 +4,39 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- 时钟表盘 -->
+    <!-- 时钟表盘 — 圆形底 -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,54m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0" />
-    <!-- 时针 -->
+        android:pathData="M54,54m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+    <!-- Dial border -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF1C1B1F"
+        android:strokeWidth="2.5"
+        android:pathData="M54,54m-28,0a28,28 0,1 1,56 0a28,28 0,1 1,-56 0" />
+    <!-- 12 hour markers -->
     <path
         android:fillColor="#FF1C1B1F"
-        android:pathData="M54,54l0,-28l4,0l0,28z"
-        android:strokeWidth="2" />
-    <!-- 分针 -->
+        android:pathData="M54,29a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
     <path
         android:fillColor="#FF1C1B1F"
-        android:pathData="M54,54l-22,12l2,3.5l20,-11z"
-        android:strokeWidth="1.5" />
+        android:pathData="M79,54a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
+    <path
+        android:fillColor="#FF1C1B1F"
+        android:pathData="M54,79a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
+    <path
+        android:fillColor="#FF1C1B1F"
+        android:pathData="M29,54a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
+    <!-- Hour hand (pointing to 10 o'clock, shorter and thicker) -->
+    <path
+        android:fillColor="#FF1C1B1F"
+        android:pathData="M54,54L38,38L35,41L51,56Z" />
+    <!-- 分针 (指向 1 点方向, 较长较细) -->
+    <path
+        android:fillColor="#FF1C1B1F"
+        android:pathData="M54,54L70,32L66,30L51,53Z" />
+    <!-- 中心轴点 -->
+    <path
+        android:fillColor="#FF6200EE"
+        android:pathData="M54,54m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
 </vector>

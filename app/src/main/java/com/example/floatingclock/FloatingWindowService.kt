@@ -102,7 +102,7 @@ class FloatingWindowService : Service() {
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         val channel = NotificationChannel(
             CHANNEL_ID,
-            "悬浮时钟服务",
+            getString(R.string.notification_channel_name),
             NotificationManager.IMPORTANCE_LOW
         )
         notificationManager.createNotificationChannel(channel)
@@ -117,8 +117,8 @@ class FloatingWindowService : Service() {
         )
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("悬浮时钟运行中")
-            .setContentText("点击打开设置")
+            .setContentTitle(getString(R.string.notification_title))
+            .setContentText(getString(R.string.notification_content))
             .setSmallIcon(android.R.drawable.ic_menu_compass)
             .setContentIntent(pendingIntent)
             .build()

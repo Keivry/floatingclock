@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="悬浮时钟"
+        android:text="@string/app_title"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp"
@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="悬浮窗开关"
+            android:text="@string/switch_floating_window"
             android:textSize="18sp"
             android:textColor="?android:attr/textColorPrimary" />
 
@@ -52,7 +52,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="字体选择"
+        android:text="@string/font_selection"
         android:textSize="14sp"
         android:textStyle="bold"
         android:layout_marginTop="24dp"
@@ -69,7 +69,7 @@
             android:id="@+id/rbFontDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="默认"
+            android:text="@string/font_default"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp"
@@ -79,7 +79,7 @@
             android:id="@+id/rbFontMonospace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="等宽"
+            android:text="@string/font_monospace"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -88,7 +88,7 @@
             android:id="@+id/rbFontSerif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="衬线"
+            android:text="@string/font_serif"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -98,7 +98,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="颜色选择"
+        android:text="@string/color_selection"
         android:textSize="14sp"
         android:textStyle="bold"
         android:layout_marginTop="24dp"
@@ -115,7 +115,7 @@
             android:id="@+id/rbColorWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="白色"
+            android:text="@string/color_white"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp"
@@ -125,7 +125,7 @@
             android:id="@+id/rbColorRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="红色"
+            android:text="@string/color_red"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -134,7 +134,7 @@
             android:id="@+id/rbColorGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="绿色"
+            android:text="@string/color_green"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -143,7 +143,7 @@
             android:id="@+id/rbColorBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="蓝色"
+            android:text="@string/color_blue"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -152,7 +152,7 @@
             android:id="@+id/rbColorYellow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="黄色"
+            android:text="@string/color_yellow"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -161,7 +161,7 @@
             android:id="@+id/rbColorCyan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="青色"
+            android:text="@string/color_cyan"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
@@ -170,7 +170,7 @@
             android:id="@+id/rbColorMagenta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="品红"
+            android:text="@string/color_magenta"
             android:textSize="16sp"
             android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
