@@ -17,10 +17,14 @@ class DraggableFrameLayout(
     private var initialTouchX = 0f
     private var initialTouchY = 0f
     private var isDragging = false
+    private var lastAppliedX = 0
+    private var lastAppliedY = 0
 
     private val handler = Handler(Looper.getMainLooper())
     private val dragRunnable = Runnable {
         isDragging = true
+        lastAppliedX = layoutParams.x
+        lastAppliedY = layoutParams.y
         layoutParams.flags =
             layoutParams.flags and WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH.inv()
         windowManager.updateViewLayout(this, layoutParams)
@@ -37,9 +41,16 @@ class DraggableFrameLayout(
 
             MotionEvent.ACTION_MOVE -> {
                 if (isDragging) {
-                    layoutParams.x = (event.rawX - initialTouchX).toInt()
-                    layoutParams.y = (event.rawY - initialTouchY).toInt()
-                    windowManager.updateViewLayout(this, layoutParams)
+                    val newX = (event.rawX - initialTouchX).toInt()
+                    val newY = (event.rawY - initialTouchY).toInt()
+                    if (Math.abs(newX - lastAppliedX) >= MOVE_THRESHOLD ||
+                        Math.abs(newY - lastAppliedY) >= MOVE_THRESHOLD) {
+                        layoutParams.x = newX
+                        layoutParams.y = newY
+                        windowManager.updateViewLayout(this, layoutParams)
+                        lastAppliedX = newX
+                        lastAppliedY = newY
+                    }
                 }
                 return true
             }
@@ -72,5 +83,9 @@ class DraggableFrameLayout(
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    companion object {
+        private const val MOVE_THRESHOLD = 4
     }
 }

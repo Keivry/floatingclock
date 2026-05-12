@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:padding="8dp"
+        android:padding="2dp"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 

@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:text="默认"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp"
             android:checked="true" />
 
@@ -80,6 +81,7 @@
             android:layout_height="wrap_content"
             android:text="等宽"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
 
         <RadioButton
@@ -88,6 +90,7 @@
             android:layout_height="wrap_content"
             android:text="衬线"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
     </RadioGroup>
 
@@ -114,6 +117,7 @@
             android:layout_height="wrap_content"
             android:text="白色"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp"
             android:checked="true" />
 
@@ -123,6 +127,7 @@
             android:layout_height="wrap_content"
             android:text="红色"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
 
         <RadioButton
@@ -131,6 +136,7 @@
             android:layout_height="wrap_content"
             android:text="绿色"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
 
         <RadioButton
@@ -139,6 +145,7 @@
             android:layout_height="wrap_content"
             android:text="蓝色"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
 
         <RadioButton
@@ -147,6 +154,7 @@
             android:layout_height="wrap_content"
             android:text="黄色"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
 
         <RadioButton
@@ -155,6 +163,7 @@
             android:layout_height="wrap_content"
             android:text="青色"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
 
         <RadioButton
@@ -163,6 +172,7 @@
             android:layout_height="wrap_content"
             android:text="品红"
             android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
             android:padding="8dp" />
     </RadioGroup>
 

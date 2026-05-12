@@ -35,24 +35,7 @@ class MainActivity : AppCompatActivity() {
         val rgFont = findViewById<RadioGroup>(R.id.rgFont)
         val rgColor = findViewById<RadioGroup>(R.id.rgColor)
 
-        switchFloating.isChecked = preferencesManager.isFloatingEnabled
-
-        when (preferencesManager.fontFamily) {
-            "monospace" -> rgFont.check(R.id.rbFontMonospace)
-            "serif" -> rgFont.check(R.id.rbFontSerif)
-            else -> rgFont.check(R.id.rbFontDefault)
-        }
-
-        when (preferencesManager.textColor) {
-            Color.RED -> rgColor.check(R.id.rbColorRed)
-            Color.GREEN -> rgColor.check(R.id.rbColorGreen)
-            Color.BLUE -> rgColor.check(R.id.rbColorBlue)
-            Color.YELLOW -> rgColor.check(R.id.rbColorYellow)
-            Color.CYAN -> rgColor.check(R.id.rbColorCyan)
-            Color.MAGENTA -> rgColor.check(R.id.rbColorMagenta)
-            else -> rgColor.check(R.id.rbColorWhite)
-        }
-
+        // 先注册所有监听器，再恢复状态 — 确保恢复状态时监听器已就位，能自动触发 Service 启动等操作
         switchFloating.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 if (!Settings.canDrawOverlays(this@MainActivity)) {
@@ -88,6 +71,25 @@ class MainActivity : AppCompatActivity() {
                 else -> Color.WHITE
             }
             preferencesManager.textColor = color
+        }
+
+        // 恢复持久化状态（监听器已就位，会触发对应的 Service 启停和样式更新）
+        switchFloating.isChecked = preferencesManager.isFloatingEnabled
+
+        when (preferencesManager.fontFamily) {
+            "monospace" -> rgFont.check(R.id.rbFontMonospace)
+            "serif" -> rgFont.check(R.id.rbFontSerif)
+            else -> rgFont.check(R.id.rbFontDefault)
+        }
+
+        when (preferencesManager.textColor) {
+            Color.RED -> rgColor.check(R.id.rbColorRed)
+            Color.GREEN -> rgColor.check(R.id.rbColorGreen)
+            Color.BLUE -> rgColor.check(R.id.rbColorBlue)
+            Color.YELLOW -> rgColor.check(R.id.rbColorYellow)
+            Color.CYAN -> rgColor.check(R.id.rbColorCyan)
+            Color.MAGENTA -> rgColor.check(R.id.rbColorMagenta)
+            else -> rgColor.check(R.id.rbColorWhite)
         }
     }
 
