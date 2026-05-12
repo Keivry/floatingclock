@@ -1,4 +1,4 @@
-package com.example.floatingclock
+package io.keivry.floatingclock
 
 import android.content.Context
 import android.os.Handler

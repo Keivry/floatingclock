@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.floatingclock"
+    namespace = "io.keivry.floatingclock"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.floatingclock"
+        applicationId = "io.keivry.floatingclock"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

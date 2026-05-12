@@ -1,14 +1,14 @@
 # 保留应用入口
--keep class com.example.floatingclock.MainActivity { *; }
+-keep class io.keivry.floatingclock.MainActivity { *; }
 
 # 保留前台 Service
--keep class com.example.floatingclock.FloatingWindowService { *; }
+-keep class io.keivry.floatingclock.FloatingWindowService { *; }
 
 # 保留自定义视图
--keep class com.example.floatingclock.DraggableFrameLayout { *; }
+-keep class io.keivry.floatingclock.DraggableFrameLayout { *; }
 
 # 保留 SharedPreferences 访问相关
--keepclassmembers class com.example.floatingclock.PreferencesManager {
+-keepclassmembers class io.keivry.floatingclock.PreferencesManager {
     public *;
 }
 

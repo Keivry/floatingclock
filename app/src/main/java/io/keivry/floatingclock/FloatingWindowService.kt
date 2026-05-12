@@ -1,4 +1,4 @@
-package com.example.floatingclock
+package io.keivry.floatingclock
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
