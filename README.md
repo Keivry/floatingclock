@@ -1,65 +1,33 @@
 # FloatingClock
 
-A lightweight Android floating clock app that displays the current system time (with seconds) as a transparent overlay on top of other apps.
+A minimal Android floating clock — displays HH:mm:ss as a transparent overlay you can drag anywhere.
 
 ## Features
 
-- **Floating clock overlay** — displays HH:mm:ss in real-time above other apps
-- **Transparent background** — only the time text is visible, minimizes visual obstruction
-- **Drag to reposition** — long-press (~500ms) and drag to move the clock anywhere on screen
-- **Tap-through** — outside touch events pass through to apps underneath (text area tap-through limited by Android platform)
-- **Font selection** — choose from Default, Monospace, or Serif fonts
-- **Color customization** — pick from 7 preset colors (White, Red, Green, Blue, Yellow, Cyan, Magenta)
-- **Persistent settings** — all preferences survive app restarts
-- **Material Design UI** — clean, modern settings interface with light/dark theme support
-- **Bilingual** — supports English and Chinese (Simplified)
+- Real-time clock with seconds (HH:mm:ss), always on top of other apps
+- Transparent background — only the time text is visible
+- Long-press and drag to reposition anywhere on screen
+- 3 fonts: Default, Monospace, Serif
+- 7 colors: White, Red, Green, Blue, Yellow, Cyan, Magenta
+- All settings are saved automatically
 
-## Screenshots
+## Usage
 
-*(Add screenshots here)*
+1. **Install** — download the latest APK from [Releases](https://github.com/Keivry/floatingclock/releases), then install. You may need to allow "Install unknown apps" for your browser.
+2. **Grant permissions** — when you first turn on the floating clock, you'll be guided to enable "Display over other apps" permission.
+3. **Turn on** — toggle the switch in the app. The clock appears as a small HH:mm:ss text on screen.
+4. **Drag** — long-press the clock (~0.5 seconds), then drag to your preferred position.
+5. **Customize** — choose your preferred font and text color in the app.
 
 ## Requirements
 
-- Android 8.0 (API 26) or later
+- Android 8.0 or later
 
 ## Permissions
 
-| Permission | Purpose |
-|---|---|
-| **Display over other apps** | Required to show the floating clock overlay |
-| **Notifications** | Required for the foreground service notification (Android 13+) |
-| **Foreground service** | Keeps the clock running reliably in the background |
-
-## Installation
-
-Download the latest APK from the [Releases](https://github.com/Keivry/floatingclock/releases) page.
-
-## Building from Source
-
-```bash
-# Clone the repository
-git clone https://github.com/Keivry/floatingclock.git
-cd floatingclock
-
-# Build debug APK
-./gradlew assembleDebug
-
-# Build release APK
-./gradlew assembleRelease
-```
-
-The project uses:
-- **Gradle 8.11.1** with Kotlin DSL
-- **AGP 8.7.3** (Android Gradle Plugin)
-- **Kotlin 2.0.21**
-- **Min SDK**: 26 | **Target SDK**: 34 | **Compile SDK**: 35
-
-## Architecture
-
-- **FloatingWindowService** — foreground `Service` that manages the floating window lifecycle via `WindowManager`
-- **DraggableFrameLayout** — custom `FrameLayout` subclass handling long-press detection and drag positioning
-- **MainActivity** — settings UI with toggle switch, font picker, and color picker
-- **PreferencesManager** — `SharedPreferences` wrapper for persisting user settings
+- **Display over other apps** — to show the clock
+- **Notifications** — required by Android for background services
+- **Ignore battery optimization** (optional) — prevents the system from killing the clock
 
 ## License
 

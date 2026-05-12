@@ -1,65 +1,33 @@
 # FloatingClock（悬浮时钟）
 
-一款轻量级 Android 悬浮时钟应用，以透明叠加层形式在其他应用上方显示当前系统时间（精确到秒）。
+一款极简 Android 悬浮时钟 — 以透明叠加层显示 HH:mm:ss，可拖动到任意位置。
 
 ## 功能
 
-- **悬浮时钟** — 实时显示 HH:mm:ss 格式的系统时间
-- **透明背景** — 仅时间文本可见，最小化视觉干扰
-- **拖动定位** — 长按约 500ms 后拖动，可移至屏幕任意位置
-- **点击穿透** — 悬浮窗范围外的触摸事件透传到下层应用（文本区域短点击因 Android 限制无法穿透）
-- **字体选择** — 支持默认、等宽、衬线三种字体
-- **颜色自定义** — 7 种预设颜色可选（白/红/绿/蓝/黄/青/品红）
-- **设置持久化** — 所有偏好设置在应用重启后保留
-- **Material Design 界面** — 简洁现代的主控制界面，支持浅色/深色主题
-- **双语支持** — 支持英文和简体中文
+- 精确到秒的实时时钟（HH:mm:ss），始终显示在其他应用上方
+- 透明背景 — 仅时间文字可见
+- 长按拖动到屏幕任意位置
+- 3 种字体：默认、等宽、衬线
+- 7 种颜色：白色、红色、绿色、蓝色、黄色、青色、品红
+- 所有设置自动保存
 
-## 截图
+## 使用说明
 
-*(此处添加截图)*
+1. **安装** — 从 [Releases](https://github.com/Keivry/floatingclock/releases) 下载最新 APK 安装。如遇安全提示，请允许浏览器"安装未知应用"。
+2. **授权** — 首次开启悬浮窗时，按引导前往系统设置，开启"在其他应用上层显示"权限。
+3. **开启** — 在应用中打开开关。屏幕上会出现一个小巧的时间文字。
+4. **拖动** — 长按时钟约 0.5 秒后即可拖动到理想位置。
+5. **自定义** — 在应用中选择喜欢的字体和颜色。
 
 ## 系统要求
 
-- Android 8.0 (API 26) 及以上
+- Android 8.0 及以上
 
 ## 所需权限
 
-| 权限 | 用途 |
-|---|---|
-| **在其他应用上层显示** | 显示悬浮时钟叠加层 |
-| **通知权限** | 前台服务通知（Android 13+ 要求） |
-| **前台服务** | 保持时钟在后台可靠运行 |
-
-## 安装
-
-从 [Releases](https://github.com/Keivry/floatingclock/releases) 页面下载最新 APK。
-
-## 从源码构建
-
-```bash
-# 克隆仓库
-git clone https://github.com/Keivry/floatingclock.git
-cd floatingclock
-
-# 构建 Debug APK
-./gradlew assembleDebug
-
-# 构建 Release APK
-./gradlew assembleRelease
-```
-
-项目技术栈：
-- **Gradle 8.11.1**（Kotlin DSL）
-- **AGP 8.7.3**（Android Gradle Plugin）
-- **Kotlin 2.0.21**
-- **最低 SDK**: 26 | **目标 SDK**: 34 | **编译 SDK**: 35
-
-## 架构
-
-- **FloatingWindowService** — 前台 `Service`，通过 `WindowManager` 管理悬浮窗生命周期
-- **DraggableFrameLayout** — 自定义 `FrameLayout`，处理长按检测与拖拽定位
-- **MainActivity** — 主设置界面，包含开关、字体选择器和颜色选择器
-- **PreferencesManager** — `SharedPreferences` 封装，持久化用户设置
+- **在其他应用上层显示** — 用于显示悬浮时钟
+- **通知权限** — Android 系统要求后台服务必须显示通知
+- **忽略电池优化**（可选）— 防止系统关闭悬浮时钟
 
 ## 许可证
 
