@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.graphics.Typeface
 import android.os.Build
@@ -143,14 +144,14 @@ class FloatingWindowService : Service() {
         val screenHeight = displayMetrics.heightPixels
         val estimatedWindowWidth = 200
         val estimatedWindowHeight = 60
+        val landscape = isLandscape()
 
-        preferencesManager.windowX = preferencesManager.windowX
-            .coerceIn(0, (screenWidth - estimatedWindowWidth).coerceAtLeast(0))
-        preferencesManager.windowY = preferencesManager.windowY
-            .coerceIn(0, (screenHeight - estimatedWindowHeight).coerceAtLeast(0))
+        val (savedX, savedY) = preferencesManager.restoreWindowPosition(landscape)
+        val clampedX = savedX.coerceIn(0, (screenWidth - estimatedWindowWidth).coerceAtLeast(0))
+        val clampedY = savedY.coerceIn(0, (screenHeight - estimatedWindowHeight).coerceAtLeast(0))
 
-        layoutParams.x = preferencesManager.windowX
-        layoutParams.y = preferencesManager.windowY
+        layoutParams.x = clampedX
+        layoutParams.y = clampedY
     }
 
     private fun applyStyleFromPreferences() {
@@ -161,6 +162,17 @@ class FloatingWindowService : Service() {
         }
         tvTime.setTextColor(preferencesManager.textColor)
     }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (isViewAdded) {
+            validateCoordinates()
+            windowManager.updateViewLayout(floatingView, layoutParams)
+        }
+    }
+
+    private fun isLandscape(): Boolean =
+        resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     companion object {
         private const val CHANNEL_ID = "floating_clock_channel"

@@ -25,11 +25,37 @@ class PreferencesManager(context: Context) {
         get() = prefs.getInt("text_color", Color.WHITE)
         set(value) = prefs.edit().putInt("text_color", value).apply()
 
-    var windowX: Int
-        get() = prefs.getInt("window_x", 100)
-        set(value) = prefs.edit().putInt("window_x", value).apply()
+    var windowXLandscape: Int
+        get() = prefs.getInt("window_x_landscape", 100)
+        set(value) = prefs.edit().putInt("window_x_landscape", value).apply()
 
-    var windowY: Int
-        get() = prefs.getInt("window_y", 200)
-        set(value) = prefs.edit().putInt("window_y", value).apply()
+    var windowYLandscape: Int
+        get() = prefs.getInt("window_y_landscape", 200)
+        set(value) = prefs.edit().putInt("window_y_landscape", value).apply()
+
+    var windowXPortrait: Int
+        get() = prefs.getInt("window_x_portrait", 100)
+        set(value) = prefs.edit().putInt("window_x_portrait", value).apply()
+
+    var windowYPortrait: Int
+        get() = prefs.getInt("window_y_portrait", 200)
+        set(value) = prefs.edit().putInt("window_y_portrait", value).apply()
+
+    fun saveWindowPosition(x: Int, y: Int, isLandscape: Boolean) {
+        if (isLandscape) {
+            windowXLandscape = x
+            windowYLandscape = y
+        } else {
+            windowXPortrait = x
+            windowYPortrait = y
+        }
+    }
+
+    fun restoreWindowPosition(isLandscape: Boolean): Pair<Int, Int> {
+        return if (isLandscape) {
+            Pair(windowXLandscape, windowYLandscape)
+        } else {
+            Pair(windowXPortrait, windowYPortrait)
+        }
+    }
 }

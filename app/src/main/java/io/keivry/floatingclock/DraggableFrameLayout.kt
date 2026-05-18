@@ -1,6 +1,7 @@
 package io.keivry.floatingclock
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
@@ -58,8 +59,9 @@ class DraggableFrameLayout(
             MotionEvent.ACTION_UP -> {
                 if (isDragging) {
                     isDragging = false
-                    preferencesManager.windowX = layoutParams.x
-                    preferencesManager.windowY = layoutParams.y
+                    preferencesManager.saveWindowPosition(
+                        layoutParams.x, layoutParams.y, isLandscape()
+                    )
                     layoutParams.flags =
                         layoutParams.flags or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
                     windowManager.updateViewLayout(this, layoutParams)
@@ -73,8 +75,9 @@ class DraggableFrameLayout(
                 handler.removeCallbacks(dragRunnable)
                 if (isDragging) {
                     isDragging = false
-                    preferencesManager.windowX = layoutParams.x
-                    preferencesManager.windowY = layoutParams.y
+                    preferencesManager.saveWindowPosition(
+                        layoutParams.x, layoutParams.y, isLandscape()
+                    )
                     layoutParams.flags =
                         layoutParams.flags or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
                     windowManager.updateViewLayout(this, layoutParams)
@@ -84,6 +87,9 @@ class DraggableFrameLayout(
         }
         return super.onTouchEvent(event)
     }
+
+    private fun isLandscape(): Boolean =
+        context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     companion object {
         private const val MOVE_THRESHOLD = 4
