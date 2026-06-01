@@ -38,9 +38,12 @@ class FloatingWindowService : Service() {
 
     private val timeUpdateRunnable = object : Runnable {
         override fun run() {
-            tvTime.text = dateFormat.format(Date())
+            val now = System.currentTimeMillis()
+            tvTime.text = dateFormat.format(Date(now))
             applyStyleFromPreferences()
-            handler.postDelayed(this, 1000)
+            // 计算下一秒边界的精确延迟，消除postDelayed累积漂移
+            val delay = 1000 - (now % 1000) + 10L
+            handler.postDelayed(this, delay)
         }
     }
 

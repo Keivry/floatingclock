@@ -4,38 +4,57 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Clock face — circular background -->
+
+    <!-- 表盘背景 -->
     <path
         android:fillColor="#FFFFFF"
         android:pathData="M54,54m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
-    <!-- Dial border -->
+
+    <!-- 表盘边框 -->
     <path
         android:fillColor="@android:color/transparent"
         android:strokeColor="#FF1C1B1F"
         android:strokeWidth="2.5"
         android:pathData="M54,54m-28,0a28,28 0,1 1,56 0a28,28 0,1 1,-56 0" />
-    <!-- 12 hour markers -->
+
+    <!-- 12 时刻度 -->
     <path
         android:fillColor="#FF1C1B1F"
         android:pathData="M54,29a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
+    <!-- 3 时刻度 -->
     <path
         android:fillColor="#FF1C1B1F"
         android:pathData="M79,54a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
+    <!-- 6 时刻度 -->
     <path
         android:fillColor="#FF1C1B1F"
         android:pathData="M54,79a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
+    <!-- 9 时刻度 -->
     <path
         android:fillColor="#FF1C1B1F"
         android:pathData="M29,54a3,3 0,1 0,0 6a3,3 0,1 0,0 -6" />
-    <!-- Hour hand (pointing to 10 o'clock, shorter and thicker) -->
-    <path
-        android:fillColor="#FF1C1B1F"
-        android:pathData="M54,54L38,38L35,41L51,56Z" />
-    <!-- Minute hand (pointing to 1 o'clock, longer and thinner) -->
-    <path
-        android:fillColor="#FF1C1B1F"
-        android:pathData="M54,54L70,32L66,30L51,53Z" />
-    <!-- Center axis pin -->
+
+    <!-- 时针 — 10:10 位置（-50° = 10 点半方向），绕表盘中心旋转 -->
+    <group
+        android:rotation="-50"
+        android:pivotX="54"
+        android:pivotY="54">
+        <path
+            android:fillColor="#FF1C1B1F"
+            android:pathData="M54,38 L59,53 L56,53 L54,60 L52,53 L49,53 Z" />
+    </group>
+
+    <!-- 分针 — 2 点方向（60°），绕表盘中心旋转 -->
+    <group
+        android:rotation="60"
+        android:pivotX="54"
+        android:pivotY="54">
+        <path
+            android:fillColor="#FF1C1B1F"
+            android:pathData="M54,32 L57,53 L55,53 L54,59 L53,53 L51,53 Z" />
+    </group>
+
+    <!-- 中心轴钉 -->
     <path
         android:fillColor="#FF6200EE"
         android:pathData="M54,54m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
