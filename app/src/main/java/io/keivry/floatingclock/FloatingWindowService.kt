@@ -13,6 +13,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import androidx.core.graphics.drawable.IconCompat
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -124,7 +125,8 @@ class FloatingWindowService : Service() {
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(getString(R.string.notification_title))
             .setContentText(getString(R.string.notification_content))
-            .setSmallIcon(android.R.drawable.ic_menu_compass)
+            .setSmallIcon(R.drawable.ic_notification_clock)
+            .setLargeIcon(IconCompat.createWithResource(this, R.mipmap.ic_launcher))
             .setContentIntent(pendingIntent)
             .build()
     }
