@@ -7,13 +7,14 @@ import android.app.Service
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.content.res.Configuration
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.PixelFormat
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import androidx.core.graphics.drawable.IconCompat
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -122,11 +123,21 @@ class FloatingWindowService : Service() {
             PendingIntent.FLAG_IMMUTABLE
         )
 
+        val largeIcon = run {
+            val drawable = resources.getDrawable(R.mipmap.ic_launcher, null)
+            val size = drawable.intrinsicWidth.takeIf { it > 0 }
+                ?: (64 * resources.displayMetrics.density).toInt()
+            Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888).also { bitmap ->
+                drawable.setBounds(0, 0, size, size)
+                drawable.draw(Canvas(bitmap))
+            }
+        }
+
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(getString(R.string.notification_title))
             .setContentText(getString(R.string.notification_content))
             .setSmallIcon(R.drawable.ic_notification_clock)
-            .setLargeIcon(IconCompat.createWithResource(this, R.mipmap.ic_launcher))
+            .setLargeIcon(largeIcon)
             .setContentIntent(pendingIntent)
             .build()
     }
